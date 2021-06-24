@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const randColour = () =>
   ["green", "red", "blue", "yellow"][Math.floor(Math.random() * 4)];
 
@@ -13,16 +14,13 @@ export default function Header() {
       <nav className="header__nav">
         <ul>
           <li>
-            {/* Create here a link to this page */}
-            Home
+            <Link to="/">Home</Link>
           </li>
           <li>
-            {/* Create here a link to this page */}
-            Categories
+            <Link to="/category">Categories</Link>
           </li>
           <li>
-            {/* Create here a link to this page */}
-            Basket
+            <Link to="/basket">Basket</Link>
           </li>
         </ul>
       </nav>
