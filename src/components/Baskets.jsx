@@ -2,6 +2,7 @@ import { calculateTotal } from "../helpers";
 import BasketItem from "./BasketItem";
 export default function Baskets({ baskets, setBaskets, products }) {
   let total = calculateTotal(baskets, products);
+  console.log(baskets);
   return (
     <main>
       <section className="basket-container">
@@ -18,8 +19,8 @@ export default function Baskets({ baskets, setBaskets, products }) {
             </li>
           ))}
         </ul>
-        {/* <!-- Basket total is calculated using each item's total from above --> */}
-        <h3>Your total: £{total}</h3>
+
+        <h3>Your total: £{total.toFixed(2)}</h3>
       </section>
     </main>
   );

@@ -22,6 +22,9 @@ export default function Header() {
           <li>
             <Link to="/basket">Basket</Link>
           </li>
+          <li className="search-bar">
+            <Link to="/search">Search</Link>
+          </li>
         </ul>
       </nav>
     </header>

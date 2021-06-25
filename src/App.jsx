@@ -5,6 +5,7 @@ import CatagoryPage from "./Pages/CatagoryPage";
 import BasketPage from "./Pages/BasketForPage";
 import ProductsPage from "./Pages/ProductsPage";
 import { useEffect, useState } from "react";
+import PageNotFound from "./Pages/PageNotFound";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -46,6 +47,9 @@ function App() {
               setBaskets={setBaskets}
               products={products}
             />
+          </Route>
+          <Route>
+            <PageNotFound />
           </Route>
         </Switch>
       </main>
