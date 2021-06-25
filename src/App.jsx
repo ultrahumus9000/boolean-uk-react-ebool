@@ -1,4 +1,4 @@
-import { Switch, Route } from "react-router-dom";
+import { Redirect, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import { SingleProduct } from "./Pages/SingleProduct";
 import CatagoryPage from "./Pages/CatagoryPage";
@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [baskets, setBaskets] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:4000/products")
@@ -15,29 +16,36 @@ function App() {
       .then(setProducts);
   }, []);
 
-  console.log(products);
   return (
     <>
       <Header />
       <main>
         <Switch>
           <Route path="/" exact>
-            <ProductsPage products={products} />
+            <Redirect to="/products" />
           </Route>
           <Route path="/products" exact>
             <ProductsPage products={products} />
           </Route>
           <Route path="/products/:productid" exact>
-            <SingleProduct products={products} />
+            <SingleProduct
+              products={products}
+              baskets={baskets}
+              setBaskets={setBaskets}
+            />
           </Route>
-          <Route path="/category" exact>
+          <Route path="/categories" exact>
             <CatagoryPage />
           </Route>
           <Route path="/categories/:catagoryid" exact>
             <ProductsPage products={products} />
           </Route>
           <Route path="/basket" exact>
-            <BasketPage />
+            <BasketPage
+              baskets={baskets}
+              setBaskets={setBaskets}
+              products={products}
+            />
           </Route>
         </Switch>
       </main>

@@ -2,7 +2,6 @@ import { Link, useParams } from "react-router-dom";
 
 export function Product({ product }) {
   let productID = product.id;
-  console.log(productID);
   return (
     <Link to={`/products/${productID}`}>
       <article className="product-item">
