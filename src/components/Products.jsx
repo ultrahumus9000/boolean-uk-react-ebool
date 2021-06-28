@@ -14,7 +14,6 @@ export default function Products({ filteredProducts }) {
           })}
         </ul>
       </section>
-      <section>hahahah</section>
     </main>
   );
 }

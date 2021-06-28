@@ -1,8 +1,14 @@
+import { Button, TextField } from "@material-ui/core";
+import { useContext } from "react";
+
 import { Link } from "react-router-dom";
+import { SearchContext } from "../App";
 const randColour = () =>
   ["green", "red", "blue", "yellow"][Math.floor(Math.random() * 4)];
 
 export default function Header() {
+  const { search, setSearch } = useContext(SearchContext);
+  console.log("search content", search);
   return (
     <header
       className="header"
@@ -23,7 +29,25 @@ export default function Header() {
             <Link to="/basket">Basket</Link>
           </li>
           <li className="search-bar">
-            <Link to="/search">Search</Link>
+            <TextField
+              className="text-field"
+              id="standard-basic"
+              variant="outlined"
+              label="type here"
+              style={{ marginRight: "10px", height: "30px" }}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+            />
+            <Link to="/">
+              <Button
+                style={{ marginLeft: "10px" }}
+                variant="contained"
+                color="primary"
+              >
+                Search
+              </Button>
+            </Link>
           </li>
         </ul>
       </nav>

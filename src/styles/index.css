@@ -102,7 +102,16 @@ img {
 .header__nav li:hover {
   text-decoration: underline;
 }
-
+.MuiInputBase-root {
+  height: 40px;
+}
+.MuiFormLabel-root,
+.MuiInputLabel-root,
+.MuiInputLabel-formControl,
+.MuiInputLabel-animated,
+.MuiInputLabel-outlined {
+  transform: translateY(13px);
+}
 /* Products Container */
 
 .products-container {

@@ -4,12 +4,19 @@ import { SingleProduct } from "./Pages/SingleProduct";
 import CatagoryPage from "./Pages/CatagoryPage";
 import BasketPage from "./Pages/BasketForPage";
 import ProductsPage from "./Pages/ProductsPage";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import PageNotFound from "./Pages/PageNotFound";
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+/>;
+
+export const SearchContext = React.createContext({});
 
 function App() {
   const [products, setProducts] = useState([]);
   const [baskets, setBaskets] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:4000/products")
@@ -19,14 +26,20 @@ function App() {
 
   return (
     <>
-      <Header />
+      <SearchContext.Provider value={{ search, setSearch }}>
+        <Header />
+      </SearchContext.Provider>
       <main>
         <Switch>
           <Route path="/" exact>
             <Redirect to="/products" />
           </Route>
           <Route path="/products" exact>
-            <ProductsPage products={products} />
+            <ProductsPage
+              products={products}
+              search={search}
+              setProducts={setProducts}
+            />
           </Route>
           <Route path="/products/:productid" exact>
             <SingleProduct

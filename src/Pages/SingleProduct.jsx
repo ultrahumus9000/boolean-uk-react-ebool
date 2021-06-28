@@ -1,6 +1,5 @@
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useHistoryHook } from "../helpers";
 import PageNotFound from "./PageNotFound";
 
 export function SingleProduct({ products, setBaskets, baskets }) {
