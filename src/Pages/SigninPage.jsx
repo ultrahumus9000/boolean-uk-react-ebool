@@ -7,7 +7,7 @@ export default function Signin({ setUser }) {
         className="sign-in-form"
         action="http://localhost:3000/products"
         onSubmit={(e) => {
-          //   e.preventDefault();
+          e.preventDefault();
           let newUser = { name: "linlin" };
           setUser(newUser);
         }}
