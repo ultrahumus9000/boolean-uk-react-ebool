@@ -6,7 +6,7 @@ import { SearchContext } from "../App";
 const randColour = () =>
   ["green", "red", "blue", "yellow"][Math.floor(Math.random() * 4)];
 
-export default function Header() {
+export default function Header({ user }) {
   const { search, setSearch } = useContext(SearchContext);
   console.log("search content", search);
   return (
@@ -46,6 +46,17 @@ export default function Header() {
                 color="primary"
               >
                 Search
+              </Button>
+            </Link>
+          </li>
+          <li>
+            <Link to="/Signin">
+              <Button
+                variant="contained"
+                color="secondary"
+                href="#contained-buttons"
+              >
+                {user.name ? user.name : "Sign In"}
               </Button>
             </Link>
           </li>

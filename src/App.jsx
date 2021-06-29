@@ -6,6 +6,7 @@ import BasketPage from "./Pages/BasketForPage";
 import ProductsPage from "./Pages/ProductsPage";
 import React, { useEffect, useState } from "react";
 import PageNotFound from "./Pages/PageNotFound";
+import Signin from "./Pages/SigninPage";
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -17,6 +18,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [baskets, setBaskets] = useState([]);
   const [search, setSearch] = useState("");
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     fetch("http://localhost:4000/products")
@@ -27,7 +29,7 @@ function App() {
   return (
     <>
       <SearchContext.Provider value={{ search, setSearch }}>
-        <Header />
+        <Header user={user} />
       </SearchContext.Provider>
       <main>
         <Switch>
@@ -60,6 +62,9 @@ function App() {
               setBaskets={setBaskets}
               products={products}
             />
+          </Route>
+          <Route path="/signin">
+            <Signin setUser={setUser} />
           </Route>
           <Route>
             <PageNotFound />

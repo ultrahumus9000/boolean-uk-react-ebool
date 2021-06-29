@@ -1,4 +1,5 @@
 {
+  "user":{"name": ""},
   "categories": [
     { "id": 1, "name": "electronics" },
     { "id": 2, "name": "jewelery" },
