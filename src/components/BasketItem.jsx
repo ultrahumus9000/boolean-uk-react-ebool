@@ -1,6 +1,6 @@
 export default function BasketItem({ baskets, setBaskets, products, basket }) {
   console.log(products);
-  console.log(basket);
+  console.log(baskets);
   if (!products) {
     return (
       <main>

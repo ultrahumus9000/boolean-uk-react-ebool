@@ -1,6 +1,6 @@
 import Baskets from "../components/Baskets";
-export default function BasketPage({ baskets, setBaskets, products }) {
+export default function BasketPage({ products, baskets, setBaskets }) {
   return (
-    <Baskets baskets={baskets} setBaskets={setBaskets} products={products} />
+    <Baskets products={products} baskets={baskets} setBaskets={setBaskets} />
   );
 }

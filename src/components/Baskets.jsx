@@ -11,10 +11,10 @@ export default function Baskets({ baskets, setBaskets, products }) {
           {baskets.map((basket, index) => (
             <li key={index}>
               <BasketItem
-                baskets={baskets}
-                setBaskets={setBaskets}
                 basket={basket}
                 products={products}
+                baskets={baskets}
+                setBaskets={setBaskets}
               />
             </li>
           ))}
@@ -25,3 +25,4 @@ export default function Baskets({ baskets, setBaskets, products }) {
     </main>
   );
 }
+// ,

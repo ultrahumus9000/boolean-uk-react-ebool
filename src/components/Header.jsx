@@ -7,8 +7,9 @@ const randColour = () =>
   ["green", "red", "blue", "yellow"][Math.floor(Math.random() * 4)];
 
 export default function Header({ user }) {
-  const { search, setSearch } = useContext(SearchContext);
+  const { search, setSearch, setUser } = useContext(SearchContext);
   console.log("search content", search);
+
   return (
     <header
       className="header"
@@ -57,6 +58,20 @@ export default function Header({ user }) {
                 href="#contained-buttons"
               >
                 {user.name ? user.name : "Sign In"}
+              </Button>
+            </Link>
+          </li>
+          <li>
+            <Link to="/">
+              <Button
+                variant="contained"
+                color="primary"
+                href="#contained-buttons"
+                onClick={() => {
+                  setUser({});
+                }}
+              >
+                Log out
               </Button>
             </Link>
           </li>

@@ -16,7 +16,7 @@ export function useHistoryHook() {
   let history = useHistory();
   useEffect(() => {
     let intervalID = setTimeout(() => {
-      history.push("/");
+      history.goBack();
     }, 3000);
     return () => clearTimeout(intervalID);
   }, []);
